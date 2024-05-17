@@ -14,7 +14,6 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from preprocess.openpose.run_openpose import OpenPose
 from preprocess.humanparsing.run_parsing import Parsing
 from ootd.inference_ootd_hd import OOTDiffusionHD
-from ootd.inference_ootd_dc import OOTDiffusionDC
 
 openpose_model_hd = OpenPose(0)
 parsing_model_hd = Parsing(0)
@@ -23,7 +22,7 @@ ootd_model_hd = OOTDiffusionHD(0)
 # openpose_model_dc = OpenPose(1)
 # parsing_model_dc = Parsing(1)
 # ootd_model_dc = OOTDiffusionDC(1)
-openpose_model_dc =openpose_model_hd
+openpose_model_dc = openpose_model_hd
 parsing_model_dc = parsing_model_hd
 ootd_model_dc = ootd_model_hd
 category_dict = ['upperbody', 'lowerbody', 'dress']
@@ -106,6 +105,7 @@ def process_dc(vton_img, garm_img, category, n_samples, n_steps, image_scale, se
 
 
 block = gr.Blocks().queue()
+block.auth = ("admin", "pass1234")
 with block:
     with gr.Row():
         gr.Markdown("# OOTDiffusion Demo")
@@ -275,4 +275,4 @@ if __name__ == '__main__':
     import uvicorn
 
     app = gr.mount_gradio_app(app, block, path="/ootd")
-    uvicorn.run(app, host='0.0.0.0', port=8000)
+    uvicorn.run(app, host='0.0.0.0', port=8000, )
