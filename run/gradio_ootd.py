@@ -20,10 +20,12 @@ openpose_model_hd = OpenPose(0)
 parsing_model_hd = Parsing(0)
 ootd_model_hd = OOTDiffusionHD(0)
 
-openpose_model_dc = OpenPose(1)
-parsing_model_dc = Parsing(1)
-ootd_model_dc = OOTDiffusionDC(1)
-
+# openpose_model_dc = OpenPose(1)
+# parsing_model_dc = Parsing(1)
+# ootd_model_dc = OOTDiffusionDC(1)
+openpose_model_dc =openpose_model_hd
+parsing_model_dc = parsing_model_hd
+ootd_model_dc = ootd_model_hd
 category_dict = ['upperbody', 'lowerbody', 'dress']
 category_dict_utils = ['upper_body', 'lower_body', 'dresses']
 
