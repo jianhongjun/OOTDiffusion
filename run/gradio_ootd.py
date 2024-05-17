@@ -271,5 +271,6 @@ def read_main():
 
 if __name__ == '__main__':
     import uvicorn
+
     app = gr.mount_gradio_app(app, block, path="/ootd")
-    uvicorn.run(app)
+    uvicorn.run(app, host='0.0.0.0', port=8000)
